@@ -29,8 +29,8 @@ typedef struct t_start
 	void	*player;
 	void	*exit;
 	void	*collectable;
-	void	*mlxpointer;
-	void	*winpointer;
+	void	*mlx;
+	void	*window;
 
 }	t_start;
 
@@ -40,6 +40,10 @@ typedef enum e_bool
 	FALSE = 0
 }	t_bool;
 
+// ----------- FUNCTIONS ---------- 
+
 int	read_map(t_start *game, char **av);
+int	exit_game(t_start *game);
+void check_errors(t_start *game);
 
 #endif

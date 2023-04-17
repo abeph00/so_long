@@ -1,12 +1,12 @@
-NAME := so_long
+NAME = so_long
 
-CC := gcc
+CC = gcc
 
-CFLAGS := -Wall -Wextra -Werror -Iheaders/
+CFLAGS = -Wall -Wextra -Werror -Iheaders/
 
-SOURCE := game_logic/*.c
-GETNEXTLINE := get_next_line/*c
-LIBRARY := -lmlx -framework OpenGL -framework AppKit
+SOURCE = *.c
+GETNEXTLINE = GNL/*c
+LIBRARY = -lmlx -framework OpenGL -framework AppKit
 
 
 all:

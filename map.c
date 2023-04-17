@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:39:58 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/13 17:07:16 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/17 11:38:46 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	read_map(t_start *game, char **av)
 	while (TRUE)
 	{
 		reading = get_next_line(game->fd);
-		if (!add_line(game, read_map))
+		if (!add_line(game, reading))
 			break;
 	}
 	close (game->fd);
