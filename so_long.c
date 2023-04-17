@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/17 14:26:24 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/17 23:31:12 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ void	init_struct(t_start *game)
 	game->barrier = 0;
 	game->player = 0;
 	game->exit = 0;
-	game->collectables = 0;
+	game->collectable = 0;
 	game->mlx = 0;
 	game->window = 0;
 }
 
 int	exit_game(t_start *game)
 {
-	int	line;
+	int	line; 
 	
 	line = 0;
 	if (game->window)
@@ -71,4 +71,5 @@ int	main(int ac, char **av)
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, (game->mapwidth * 40),
 	 (game->mapheight * 40), "so_long");
+	put_images(game);
 }
