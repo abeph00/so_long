@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 16:33:54 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/19 20:34:32 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:44:42 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int	controls(int command, t_start *game)
 	int	works;
 	int	i;
 	int	j;
-	int	k;
 
 	i = game->x_axis;
 	j = game->y_axis;
