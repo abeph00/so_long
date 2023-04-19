@@ -42,8 +42,11 @@ typedef enum e_bool
 
 // ----------- FUNCTIONS ---------- 
 
-int	read_map(t_start *game, char **av);
-int	exit_game(t_start *game);
-void check_errors(t_start *game);
+int		read_map(t_start *game, char **av);
+int		exit_game(t_start *game);
+void	check_errors(t_start *game);
+void	put_images(t_start *game);
+void	put_graphics(t_start *game);
+int		controls(int command, t_start *game);
 
 #endif

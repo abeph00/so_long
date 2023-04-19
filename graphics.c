@@ -12,19 +12,65 @@
 
 #include "so_long.h"
 
-void	put_images(t_complete *game)
+void	place_player(t_start *game, int height, int width)
+{
+	mlx_put_image_to_window(game->mlx,
+		game->window, game->player, width * 45, height * 45);
+	game->y_axis = height;
+	game->x_axis = width;
+}
+
+void	place_collectable(t_start *game, int height, int width)
+{
+	mlx_put_image_to_window(game->mlx,
+		game->window, game->collectable, width * 45, height * 45);
+	game->collectables++;
+}
+
+void	put_images(t_start *game)
 {
 	int	i;
 	int	j;
 
-	game->floor = mlx_xpm_file_to_image(game->mlxpointer,
-			"......", &i, &j);
-	game->barrier = mlx_xpm_file_to_image(game->mlxpointer,
-			"......", &i, &j);
-	game->player = mlx_xpm_file_to_image(game->mlxpointer,
-			"......", &i, &j);
-	game->exit = mlx_xpm_file_to_image(game->mlxpointer,
-			"......", &i, &j);
-	game->collectable = mlx_xpm_file_to_image(game->mlxpointer,
-			"......", &i, &j);
+	game->floor = mlx_xpm_file_to_image(game->mlx,
+			"IMAGES/grass.xpm", &i, &j);
+	game->barrier = mlx_xpm_file_to_image(game->mlx,
+			"IMAGES/tree.xpm", &i, &j);
+	game->player = mlx_xpm_file_to_image(game->mlx,
+			"IMAGES/finn.xpm", &i, &j);
+	game->exit = mlx_xpm_file_to_image(game->mlx,
+			"IMAGES/exit.xpm", &i, &j);
+	game->collectable = mlx_xpm_file_to_image(game->mlx,
+			"IMAGES/mushroom.xpm", &i, &j);
+}
+
+void	put_graphics(t_start *game)
+{
+	int	height;
+	int	width;
+
+	game->collectables = 0;
+	height = 0;
+		while (height < game->mapheight)
+	{
+		width = 0;
+		while (game->map[height][width])
+		{
+			 if (game->map[height][width] == '1')
+			 	mlx_put_image_to_window(game->mlx,
+			 		game->window, game->barrier, width * 45, height * 45);
+			if (game->map[height][width] == 'C')
+				place_collectable(game, height, width);
+			if (game->map[height][width] == 'P')
+			 	place_player(game, height, width);
+			if (game->map[height][width] == 'E')
+				mlx_put_image_to_window(game->mlx,
+					game->window, game->exit, width * 45, height * 45);
+			if (game->map[height][width] == '0')
+			 	mlx_put_image_to_window(game->mlx,
+			 		game->window, game->floor, width * 45, height * 45);
+			width++;
+		}
+		height++;
+	}
 }

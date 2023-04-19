@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/17 13:59:54 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:31:29 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 static int	horizontalwall(t_start *game)
 {
 	int	width;
-	
+
 	width = 0;
 	while (width < game->mapwidth)
 	{
-		if (!(game->map[0][width] == '1' &&
-		 game->map[game->mapheight - 1][width] == '1'))
+		if (!(game->map[0][width] == '1'
+				&& game->map[game->mapheight - 1][width] == '1'))
 			return (0);
 		width++;
 	}
@@ -36,8 +36,8 @@ static int	verticalwall(t_start *game)
 	width = game->mapwidth;
 	while (height < game->mapheight)
 	{
-		if (!(game->map[height][0] == '1' &&
-		 game->map[height][width - 1] == '1'))
+		if (!(game->map[height][0] == '1'
+				&& game->map[height][width - 1] == '1'))
 			return (0);
 		height++;
 	}
@@ -68,7 +68,7 @@ static void	valid_char(t_start *game)
 {
 	int	height;
 	int	width;
-	
+
 	height = 0;
 	while (height < game->mapheight - 1)
 	{
@@ -80,15 +80,15 @@ static void	valid_char(t_start *game)
 		}
 		height++;
 	}
-	if (!(game->playercount == 1 &&
-	 game->columncount > 1 && game->exitcount == 1))
+	if (!(game->playercount == 1 && game->columncount > 1
+			&& game->exitcount == 1))
 	{
 		printf("Error: Player, exit or collectable issue\n");
 		exit_game(game);
 	}
 }
 
-void check_errors(t_start *game)
+void	check_errors(t_start *game)
 {
 	int	verticalwalls;
 	int	horizontalwalls;

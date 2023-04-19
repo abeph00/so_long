@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:39:58 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/17 11:38:46 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:22:52 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	get_width(char *str)
 		width++;
 	if (str[width - 1] == '\n')
 		width--;
-	return(1);
+	return(width);
 }
 
 static int	add_line(t_start *game, char *line)
@@ -58,7 +58,7 @@ int	read_map(t_start *game, char **av)
 	{
 		reading = get_next_line(game->fd);
 		if (!add_line(game, reading))
-			break;
+			break ;
 	}
 	close (game->fd);
 	game->mapwidth = get_width(game->map[0]);
