@@ -37,40 +37,46 @@ void	put_images(t_start *game)
 	game->barrier = mlx_xpm_file_to_image(game->mlx,
 			"IMAGES/tree.xpm", &i, &j);
 	game->player = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/finn.xpm", &i, &j);
+			"IMAGES/oldman.xpm", &i, &j);
 	game->exit = mlx_xpm_file_to_image(game->mlx,
 			"IMAGES/exit.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/mushroom.xpm", &i, &j);
+			"IMAGES/t.xpm", &i, &j);
+}
+
+void	put_graphics1(t_start *game, int height)
+{
+	int	width;
+
+	while (height < game->mapheight)
+	{
+		width = 0;
+		while (game->map[height][width])
+		{
+			if (game->map[height][width] == '1')
+				mlx_put_image_to_window(game->mlx, game->window,
+					game->barrier, width * 45, height * 45);
+			if (game->map[height][width] == 'C')
+				place_collectable(game, height, width);
+			if (game->map[height][width] == 'P')
+				place_player(game, height, width);
+			if (game->map[height][width] == 'E')
+				mlx_put_image_to_window(game->mlx,
+					game->window, game->exit, width * 45, height * 45);
+			if (game->map[height][width] == '0')
+				mlx_put_image_to_window(game->mlx,
+					game->window, game->floor, width * 45, height * 45);
+			width++;
+		}
+		height++;
+	}
 }
 
 void	put_graphics(t_start *game)
 {
 	int	height;
-	int	width;
 
 	game->collectables = 0;
 	height = 0;
-		while (height < game->mapheight)
-	{
-		width = 0;
-		while (game->map[height][width])
-		{
-			 if (game->map[height][width] == '1')
-			 	mlx_put_image_to_window(game->mlx,
-			 		game->window, game->barrier, width * 45, height * 45);
-			if (game->map[height][width] == 'C')
-				place_collectable(game, height, width);
-			if (game->map[height][width] == 'P')
-			 	place_player(game, height, width);
-			if (game->map[height][width] == 'E')
-				mlx_put_image_to_window(game->mlx,
-					game->window, game->exit, width * 45, height * 45);
-			if (game->map[height][width] == '0')
-			 	mlx_put_image_to_window(game->mlx,
-			 		game->window, game->floor, width * 45, height * 45);
-			width++;
-		}
-		height++;
-	}
+	put_graphics1(game, height);
 }

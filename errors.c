@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/18 16:31:29 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:37:22 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	horizontalwall(t_start *game)
 	while (width < game->mapwidth)
 	{
 		if (!(game->map[0][width] == '1'
-				&& game->map[game->mapheight - 1][width] == '1'))
+			&& game->map[game->mapheight - 1][width] == '1'))
 			return (0);
 		width++;
 	}
@@ -37,7 +37,7 @@ static int	verticalwall(t_start *game)
 	while (height < game->mapheight)
 	{
 		if (!(game->map[height][0] == '1'
-				&& game->map[height][width - 1] == '1'))
+			&& game->map[height][width - 1] == '1'))
 			return (0);
 		height++;
 	}
@@ -52,16 +52,16 @@ static void	valid_amount(t_start *game, int height, int width)
 		game->map[height][width] != 'E' &&
 		game->map[height][width] != 'C' &&
 		game->map[height][width] != '\n')
-		{
-			printf("Error here: %c", game->map[height][width]);
-			exit_game(game);
-		}
-		if (game->map[height][width] == 'C')
-			game->columncount++;
-		if (game->map[height][width] == 'P')
-			game->playercount++;
-		if (game->map[height][width] == 'E')
-			game->exitcount++;
+	{
+		printf("Error here: %c", game->map[height][width]);
+		exit_game(game);
+	}
+	if (game->map[height][width] == 'C')
+		game->columncount++;
+	if (game->map[height][width] == 'P')
+		game->playercount++;
+	if (game->map[height][width] == 'E')
+		game->exitcount++;
 }
 
 static void	valid_char(t_start *game)
