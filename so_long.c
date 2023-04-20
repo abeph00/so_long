@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 20:14:54 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:59:42 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ int	main(int ac, char **av)
 	t_start	*game;
 
 	if (ac != 2)
-		return (0);
+	{
+		printf("Error: the number of arguments is not correct\n");
+		exit (1);
+	}
+	valid_map(av[1], ".ber");
 	game = (t_start *)malloc(sizeof(t_start));
 	if (game == NULL)
 		return (0);

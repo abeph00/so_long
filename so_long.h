@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:12:39 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 20:15:10 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:00:23 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	check_errors(t_start *game);
 void	put_images(t_start *game);
 void	put_graphics(t_start *game);
 int		controls(int command, t_start *game);
+void	valid_map(char *map, char *ext);
 void	check_rectangle(t_start *game);
 
 #endif

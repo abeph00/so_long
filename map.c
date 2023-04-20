@@ -6,13 +6,13 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:39:58 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 20:14:41 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:19:41 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static	int	get_width(char *str)
+static int	get_width(char *str)
 {
 	int	width;
 
@@ -47,6 +47,25 @@ static int	add_line(t_start *game, char *line)
 	return (1);
 }
 
+void	valid_map(char *map, char *ext)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(map) - ft_strlen(ext);
+	j = 0;
+	while (map[i + j] && ext[j])
+	{
+		if (map[i + j] == ext[j])
+			j++;
+		else
+		{
+			printf("Error: The map has to be a .ber file\n");
+			exit(1);
+		}
+	}
+}
+
 void	check_rectangle(t_start *game)
 {
 	int	i;
@@ -59,7 +78,7 @@ void	check_rectangle(t_start *game)
 		w = get_width(game->map[i]);
 		if (w != game->mapwidth)
 		{
-			printf("Error: Width not the same in all lines");
+			printf("Error: Width not the same in all lines\n");
 			exit_game(game);
 		}
 		game->mapwidth = get_width(game->map[i]);
@@ -73,7 +92,10 @@ int	read_map(t_start *game, char **av)
 
 	game->fd = open(av[1], O_RDONLY);
 	if (game->fd < 0)
-		return (0);
+	{
+		printf("Error: Unable to open the map\n");
+		exit_game(game);
+	}
 	while (TRUE)
 	{
 		reading = get_next_line(game->fd);

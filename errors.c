@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 20:13:42 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:20:04 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	valid_amount(t_start *game, int height, int width)
 		game->map[height][width] != 'C' &&
 		game->map[height][width] != '\n')
 	{
-		printf("Error here: %c", game->map[height][width]);
+		printf("Error here: %c\n", game->map[height][width]);
 		exit_game(game);
 	}
 	if (game->map[height][width] == 'C')
