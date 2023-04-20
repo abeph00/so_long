@@ -19,7 +19,7 @@ NAME = so_long
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -Iheaders/
+CFLAGS = -Wall -Wextra -Werror -Iheaders -g3 -fsanitize=address
 
 SOURCE = controls.c \
 		 errors.c \

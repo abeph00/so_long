@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 18:36:51 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:14:54 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int ac, char **av)
 		return (0);
 	init_struct(game);
 	read_map(game, av);
+	check_rectangle(game);
 	check_errors(game);
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, (game->mapwidth * 45),

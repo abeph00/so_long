@@ -41,7 +41,7 @@ void	put_images(t_start *game)
 	game->exit = mlx_xpm_file_to_image(game->mlx,
 			"images/exit.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
-			"images/t.xpm", &i, &j);
+			"images/tooth.xpm", &i, &j);
 }
 
 void	put_graphics1(t_start *game, int height)

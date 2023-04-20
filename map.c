@@ -6,13 +6,13 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:39:58 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 14:44:42 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 20:14:41 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	get_width(char *str)
+static	int	get_width(char *str)
 {
 	int	width;
 
@@ -47,23 +47,12 @@ static int	add_line(t_start *game, char *line)
 	return (1);
 }
 
-int	read_map(t_start *game, char **av)
+void	check_rectangle(t_start *game)
 {
-	char	*reading;
-	int		i;
-	int		w;
+	int	i;
+	int	w;	
 
 	i = 1;
-	game->fd = open(av[1], O_RDONLY);
-	if (game->fd < 0)
-		return (0);
-	while (TRUE)
-	{
-		reading = get_next_line(game->fd);
-		if (!add_line(game, reading))
-			break ;
-	}
-	close (game->fd);
 	game->mapwidth = get_width(game->map[0]);
 	while (game->map[i])
 	{
@@ -76,5 +65,21 @@ int	read_map(t_start *game, char **av)
 		game->mapwidth = get_width(game->map[i]);
 		i++;
 	}
+}
+
+int	read_map(t_start *game, char **av)
+{
+	char	*reading;
+
+	game->fd = open(av[1], O_RDONLY);
+	if (game->fd < 0)
+		return (0);
+	while (TRUE)
+	{
+		reading = get_next_line(game->fd);
+		if (!add_line(game, reading))
+			break ;
+	}
+	close (game->fd);
 	return (1);
 }
