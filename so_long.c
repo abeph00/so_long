@@ -6,15 +6,13 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/19 20:19:17 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:36:51 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 /*MODIFICACIONES
--EL MALLOC INICIAL DE GAME
--LAS PAREDES HORIZONTALES
 -MAPA NO RECTANGULAR? SE ARREGLA PERO DEBE DAR ERROR? ABAJO DE ERROR,
 PRIMERA LINEA MBIEN, LO DEMAS NO, PORQUE?
 -ARREGLAR RELINK Y MAKEFILE

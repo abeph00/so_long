@@ -33,15 +33,15 @@ void	put_images(t_start *game)
 	int	j;
 
 	game->floor = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/grass.xpm", &i, &j);
+			"images/grass.xpm", &i, &j);
 	game->barrier = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/tree.xpm", &i, &j);
+			"images/tree.xpm", &i, &j);
 	game->player = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/oldman.xpm", &i, &j);
+			"images/oldman.xpm", &i, &j);
 	game->exit = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/exit.xpm", &i, &j);
+			"images/exit.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
-			"IMAGES/t.xpm", &i, &j);
+			"images/t.xpm", &i, &j);
 }
 
 void	put_graphics1(t_start *game, int height)

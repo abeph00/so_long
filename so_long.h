@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:12:39 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/19 20:12:43 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:21:33 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <errno.h>
 # include <string.h>
 # include <mlx.h>
-# include "GNL/get_next_line.h"
+# include "gnl/get_next_line.h"
 
 typedef struct t_start
 {
