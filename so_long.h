@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 20:12:39 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 21:00:23 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/24 19:46:57 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct t_start
 	int		y_axis;
 	int		counter;
 	int		collectables;
+	int		exit_count;
+	int		collectables_count;
 
 	char	**map;
 
@@ -62,5 +64,7 @@ void	put_graphics(t_start *game);
 int		controls(int command, t_start *game);
 void	valid_map(char *map, char *ext);
 void	check_rectangle(t_start *game);
+int		get_width(char *str);
+int		player_position(char **map, t_start *game);
 
 #endif

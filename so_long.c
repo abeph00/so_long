@@ -6,16 +6,16 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 20:59:42 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/24 20:28:48 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 /*MODIFICACIONES
--MAPA NO RECTANGULAR? SE ARREGLA PERO DEBE DAR ERROR? ABAJO DE ERROR,
-PRIMERA LINEA MBIEN, LO DEMAS NO, PORQUE?
--ARREGLAR RELINK Y MAKEFILE
+-b_zero, inicializar
+-ORDENAR
+-REDUCIR FUNCIONES
 */
 
 void	init_struct(t_start *game)
@@ -30,6 +30,8 @@ void	init_struct(t_start *game)
 	game->y_axis = 0;
 	game->counter = 0;
 	game->collectables = 0;
+	game->collectables_count = 0;
+	game->exit_count = 0;
 	game->map = NULL;
 	game->floor = 0;
 	game->barrier = 0;
@@ -57,7 +59,11 @@ int	exit_game(t_start *game)
 int	main(int ac, char **av)
 {
 	t_start	*game;
+	char	**map;
+	int		i;
+	int		j;
 
+	i = -1;
 	if (ac != 2)
 	{
 		printf("Error: the number of arguments is not correct\n");
@@ -71,6 +77,21 @@ int	main(int ac, char **av)
 	read_map(game, av);
 	check_rectangle(game);
 	check_errors(game);
+	map = (char **)malloc(sizeof(char *) * game->mapheight);
+	while (++i < game->mapheight)
+		map[i] = (char *)malloc(sizeof(char) * game->mapwidth);
+	i = 0;
+	while (i < game->mapheight)
+	{
+	j = 0;
+		while (j < game->mapwidth)
+		{
+			map[i][j] = game->map[i][j];
+			j++;
+		}
+		i++;
+	}
+	player_position(map, game);
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, (game->mapwidth * 45),
 			(game->mapheight * 45), "so_long");

@@ -22,6 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iheaders -g3 -fsanitize=address
 
 SOURCE = controls.c \
+		 parse.c \
 		 errors.c \
 		 graphics.c \
 		 map.c \

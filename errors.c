@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/20 21:20:04 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:14:25 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void	valid_char(t_start *game)
 		}
 		height++;
 	}
-	if (!(game->playercount == 1 && game->columncount > 1
+	if (!(game->playercount == 1 && game->columncount >= 1
 			&& game->exitcount == 1))
 	{
 		printf("Error: Player, exit or collectable issue\n");
