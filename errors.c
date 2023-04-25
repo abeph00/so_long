@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/24 16:14:25 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:42:18 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,11 @@ static void	valid_char(t_start *game)
 
 void	check_errors(t_start *game)
 {
-	int	verticalwalls;
-	int	horizontalwalls;
+	char	**map;
+	int		verticalwalls;
+	int		horizontalwalls;
 
+	check_rectangle(game);
 	verticalwalls = verticalwall(game);
 	horizontalwalls = horizontalwall(game);
 	if (!verticalwalls || !horizontalwalls)
@@ -101,4 +103,7 @@ void	check_errors(t_start *game)
 		exit_game(game);
 	}
 	valid_char(game);
+	map = (char **)malloc(sizeof(char *) * game->mapheight);
+	map_copy(map, game);
+	player_position(map, game);
 }

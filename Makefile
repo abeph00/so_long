@@ -24,6 +24,7 @@ CFLAGS = -Wall -Wextra -Werror -Iheaders -g3 -fsanitize=address
 SOURCE = controls.c \
 		 parse.c \
 		 errors.c \
+		 errors_utils.c \
 		 graphics.c \
 		 map.c \
 		 so_long.c \

@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/24 20:28:48 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:53:50 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	init_struct(t_start *game)
 	game->counter = 0;
 	game->collectables = 0;
 	game->collectables_count = 0;
+	game->player_x = 1;
+	game->player_y = 1;
 	game->exit_count = 0;
 	game->map = NULL;
 	game->floor = 0;
@@ -59,11 +61,8 @@ int	exit_game(t_start *game)
 int	main(int ac, char **av)
 {
 	t_start	*game;
-	char	**map;
-	int		i;
-	int		j;
 
-	i = -1;
+	system("leaks so_long");
 	if (ac != 2)
 	{
 		printf("Error: the number of arguments is not correct\n");
@@ -75,23 +74,7 @@ int	main(int ac, char **av)
 		return (0);
 	init_struct(game);
 	read_map(game, av);
-	check_rectangle(game);
 	check_errors(game);
-	map = (char **)malloc(sizeof(char *) * game->mapheight);
-	while (++i < game->mapheight)
-		map[i] = (char *)malloc(sizeof(char) * game->mapwidth);
-	i = 0;
-	while (i < game->mapheight)
-	{
-	j = 0;
-		while (j < game->mapwidth)
-		{
-			map[i][j] = game->map[i][j];
-			j++;
-		}
-		i++;
-	}
-	player_position(map, game);
 	game->mlx = mlx_init();
 	game->window = mlx_new_window(game->mlx, (game->mapwidth * 45),
 			(game->mapheight * 45), "so_long");
