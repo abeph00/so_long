@@ -6,17 +6,11 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/25 15:53:50 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:56:21 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-/*MODIFICACIONES
--b_zero, inicializar
--ORDENAR
--REDUCIR FUNCIONES
-*/
 
 void	init_struct(t_start *game)
 {
@@ -62,7 +56,6 @@ int	main(int ac, char **av)
 {
 	t_start	*game;
 
-	system("leaks so_long");
 	if (ac != 2)
 	{
 		printf("Error: the number of arguments is not correct\n");
@@ -82,5 +75,6 @@ int	main(int ac, char **av)
 	put_graphics(game);
 	mlx_key_hook(game->window, controls, game);
 	mlx_hook(game->window, 17, 0, (void *)exit, 0);
+	system("leaks so_long");
 	mlx_loop(game->mlx);
 }

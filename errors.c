@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:53:15 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/25 15:42:18 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:57:01 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ void	check_errors(t_start *game)
 	}
 	valid_char(game);
 	map = (char **)malloc(sizeof(char *) * game->mapheight);
-	map_copy(map, game);
+	copy_map(map, game);
 	player_position(map, game);
 }

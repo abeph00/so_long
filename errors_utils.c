@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:08:25 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/25 15:43:30 by abertran         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:57:39 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_rectangle(t_start *game)
 	}
 }
 
-void	map_copy(char **map, t_start *game)
+void	copy_map(char **map, t_start *game)
 {
 	int		i;
 	int		j;
@@ -51,4 +51,38 @@ void	map_copy(char **map, t_start *game)
 		}
 		i++;
 	}
+}
+
+void	valid_map(char *map, char *ext)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(map) - ft_strlen(ext);
+	j = 0;
+	while (map[i + j] && ext[j])
+	{
+		if (map[i + j] == ext[j])
+			j++;
+		else
+		{
+			printf("Error: The map has to be a .ber file\n");
+			exit(1);
+		}
+	}
+}
+
+void	*valid_xpm(t_start *game, char *str)
+{
+	void	*img;
+	int		px;
+
+	px = 45;
+	img = mlx_xpm_file_to_image(game->mlx, str, &px, &px);
+	if (!img)
+	{
+		printf("Error: .xpm issue\n");
+		exit_game(game);
+	}
+	return (img);
 }

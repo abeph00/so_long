@@ -29,19 +29,11 @@ void	place_collectable(t_start *game, int height, int width)
 
 void	put_images(t_start *game)
 {
-	int	i;
-	int	j;
-
-	game->floor = mlx_xpm_file_to_image(game->mlx,
-			"textures/grass.xpm", &i, &j);
-	game->barrier = mlx_xpm_file_to_image(game->mlx,
-			"textures/tree.xpm", &i, &j);
-	game->player = mlx_xpm_file_to_image(game->mlx,
-			"textures/oldman.xpm", &i, &j);
-	game->exit = mlx_xpm_file_to_image(game->mlx,
-			"textures/exit.xpm", &i, &j);
-	game->collectable = mlx_xpm_file_to_image(game->mlx,
-			"textures/tooth.xpm", &i, &j);
+	game->floor = valid_xpm(game, "textures/grass.xpm");
+	game->barrier = valid_xpm(game, "textures/tree.xpm");
+	game->player = valid_xpm(game, "textures/oldman.xpm");
+	game->exit = valid_xpm(game, "textures/exit.xpm");
+	game->collectable = valid_xpm(game, "textures/tooth.xpm");
 }
 
 void	put_graphics1(t_start *game, int height)
