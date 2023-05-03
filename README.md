@@ -16,11 +16,11 @@ ERRORES
 
 Comprobaciones a tener en cuenta de cara a la corrección:
 
-• Mapa vacío
-• Archivo .ber
-• Permisos de archivo
-• Colleccionable detras de la puerta
-• Ruta valida
-• Acceso a todos los coleccionables
-• Mapa rectangular
-• Que exista el archivo
+• Mapa vacío <br>
+• Archivo .ber <br>
+• Permisos de archivo  <br>
+• Colleccionable detras de la puerta <br>
+• Ruta valida <br>
+• Acceso a todos los coleccionables <br>
+• Mapa rectangular <br>
+• Que exista el archivo <br>
