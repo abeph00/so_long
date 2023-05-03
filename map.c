@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 16:39:58 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/24 15:47:51 by abertran         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:03:43 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,14 @@ int	read_map(t_start *game, char **av)
 	{
 		reading = get_next_line(game->fd);
 		if (!add_line(game, reading))
+		{
 			break ;
+		}
+	}
+	if (game->mapheight == 0 && game->mapwidth == 0)
+	{
+		printf("Error: Map is empty\n");
+		exit_game(game);
 	}
 	close (game->fd);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/04/26 18:56:21 by abertran         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:59:16 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ int	main(int ac, char **av)
 	put_graphics(game);
 	mlx_key_hook(game->window, controls, game);
 	mlx_hook(game->window, 17, 0, (void *)exit, 0);
-	system("leaks so_long");
 	mlx_loop(game->mlx);
 }

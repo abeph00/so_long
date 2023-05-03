@@ -12,8 +12,15 @@ trabajar con texturas y sprites y algunos otros elementos básicos de jugabilida
 
 Para compilar nuestro programa con la minilibX: gcc main.c -lmlx -framework OpenGL -framework AppKit.
 
-INICIALIZAR
+ERRORES
 
-TILES
+Comprobaciones a tener en cuenta de cara a la corrección:
 
-GAME
+Mapa vacío
+Archivo .ber
+Permisos de archivo
+Colleccionable detras de la puerta
+Ruta valida
+Acceso a todos los coleccionables
+Mapa rectangular
+Que exista el archivo
