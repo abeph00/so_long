@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:55 by abertran          #+#    #+#             */
-/*   Updated: 2023/05/10 17:33:30 by abertran         ###   ########.fr       */
+/*   Updated: 2023/05/18 13:36:11 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	route_c(char **map, int x, int y, t_start *game)
 	if (map[y][x] == 'C')
 		game->collectables_count++;
 	if (map[y - 1][x] == '0' || map[y + 1][x] == '0' ||
-		map[y][x - 1] == '0' || map[y][x + 1] == '0')
+		map[y][x - 1] == '0' || map[y][x + 1] == '0' || map[y - 1][x] == 'C'
+		|| map[y + 1][x] == 'C' || map[y][x - 1] == 'C' || map[y][x + 1] == 'C')
 		map[y][x] = '.';
 	if (map[y - 1][x] == '0' || map[y - 1][x] == 'C')
 		route_c(map, x, y - 1, game);
