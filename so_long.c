@@ -6,7 +6,7 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:57:27 by abertran          #+#    #+#             */
-/*   Updated: 2023/05/22 18:05:16 by abertran         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:18:31 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	exit_game(t_start *game)
 	while (line < game->mapheight)
 		free(game->map[line++]);
 	free(game->map);
-	system("leaks so_long");
 	exit(0);
 }
 
