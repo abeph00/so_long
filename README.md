@@ -24,3 +24,5 @@ Comprobaciones a tener en cuenta de cara a la corrección:
 • Acceso a todos los coleccionables <br>
 • Mapa rectangular <br>
 • Que exista el archivo <br>
+
+Para comprobar los leaks tambien puedes:  ps -ax | grep so_long que te dara el numero de proceso del programa y luego ejecutar leaks numero de programa, mientras se esta ejecutando.
