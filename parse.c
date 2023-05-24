@@ -6,34 +6,11 @@
 /*   By: abertran <abertran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:29:55 by abertran          #+#    #+#             */
-/*   Updated: 2023/05/22 17:38:53 by abertran         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:13:59 by abertran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	count_collectables(char **map, t_start *game)
-{
-	int	x;
-	int	y;
-	int	c;
-
-	y = 1;
-	x = 1;
-	c = 0;
-	while (y < game->mapheight)
-	{
-		x = 1;
-		while (x < game->mapwidth)
-		{
-			if (map[y][x] == 'C')
-				c++;
-			x++;
-		}
-		y++;
-	}
-	return (c);
-}
 
 static void	route_c(char **map, int x, int y, t_start *game)
 {
@@ -75,13 +52,11 @@ static void	route_e(char **map, int x, int y, t_start *game)
 
 static void	check_route(char **map, t_start *game)
 {
-	int	c;
 	int	line;
 
 	line = 0;
-	c = count_collectables(map, game);
 	route_c(map, game->player_x, game->player_y, game);
-	if (game->collectables_count != c)
+	if (game->collectables_count != game->columncount)
 	{
 		printf("No route available to all collectables\n");
 		exit_game(game);
